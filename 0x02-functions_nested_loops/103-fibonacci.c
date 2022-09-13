@@ -17,7 +17,7 @@ int main(void)
 			break;
 
 		if ((numbers % 2) == 0)
-			tot_sum += numbers;
+			fibSum += numbers;
 
 		num1 = num2;
 		num2 = numbers;
