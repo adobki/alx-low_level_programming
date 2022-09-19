@@ -13,7 +13,7 @@ void print_rev(char *s)
 		strLen++;
 
 	/* Loop through s backwards character by character and print each one */
-	while (strLen >= 0)
+	while (strLen > 0)
 		_putchar(s[--strLen]);
 
 	/* Print new line character after string */
