@@ -12,25 +12,26 @@
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	/* Declare variable to store length of source string */
-	int length;
+	/* Declare variable to store beginning of destination string */
+	char *destBck = dest;
+	char *srcBck = src;
 
 	/* Copy second string (src) to first string (dest) */
-	while (*src != '\0')
+	while (*src)
 	{
 		*dest = *src;
 		dest++;
 		src++;
-		length++;
 		if (--n < 1)
 			break;
-	  }
+	}
 
 	/* Copy null byte that indicates end of string/character array */
 	*dest = *src;
 
 	/* Move character pointer back to the beginning of the string */
-	dest -= length;
+	dest = destBck;
+	src = srcBck;
 
 	/* Return a pointer to the new, concatenated string */
 	return (dest);
