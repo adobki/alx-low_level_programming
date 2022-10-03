@@ -30,11 +30,11 @@ char *_strncat(char *dest, char *src, int n)
 		dest++;
 		src++;
 		length++;
-		
+
 		/* Stop if specified number of characters have been copied from src */
 		if (--n <= 0)
 			break;
-	  }
+	}
 
 	/* Add null byte to indicate end of string/character array */
 	*dest = '\0';
