@@ -27,7 +27,8 @@ char *_strncpy(char *dest, char *src, int n)
 	}
 
 	/* Copy null byte that indicates end of string/character array */
-	*dest = *src;
+	if (*src == '\0')
+		*dest = *src;
 
 	/* Move character pointer back to the beginning of the string */
 	dest = destBck;
