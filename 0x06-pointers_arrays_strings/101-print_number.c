@@ -8,7 +8,7 @@
 void print_number(int n)
 {
 	int n2 = n;
-	int length = 0;
+	int length = 1;
 	int countr;
 
 	/* Check if given input is zero. Print zero and exit if true */
@@ -33,7 +33,7 @@ void print_number(int n)
 		++length;
 	}
 
-	while (length)
+	while (--length)
 	{
 		/* Get first digit from integer*/
 		n2 = n;
@@ -45,8 +45,6 @@ void print_number(int n)
 		for (countr = 1; countr < length; countr++)
 			n2 *= 10;
 		n -= n2;
-
-		length--;
 	}
 }
 
