@@ -22,6 +22,10 @@ char *_strchr(char *s, char c)
 		loc++;
 	}
 
+	/* Check if c is null byte and return string's null byte */
+	if (*loc == c)
+		return (loc);
+
 	/* Character not found in string. Return NULL */
-	return (NULL);
+	return ('\0');
 }
