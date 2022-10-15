@@ -12,5 +12,5 @@ int main(void)
 	_puts_recursion(c);
 	puts(c);
 
-   return (0);
+	return (0);
 }
