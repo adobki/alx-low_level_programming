@@ -1,35 +1,6 @@
 #include "main.h"
 
 /**
- * countChange - Function that counts coins from given integer, change.
- *               Check main function below for full description.
- *               NOTE: Function assumes that change is an integer >= 1.
- *
- * @change: Given integer.
- *
- * Return: Minimum number of coins needed for change.
- */
-
-int countChange(int change)
-{
-	if (change <= 1)
-		return (change);
-	else if (change)
-	{
-		if (change >= 25)
-			change -= 25;
-		else if (change >= 10)
-			change -= 10;
-		else if (change >= 5)
-			change -= 5;
-		else if (change >= 2)
-			change -= 2;
-	}
-
-	return (1 + countChange(change));
-}
-
-/**
  * _isInt - Function that checks if a given string contains only integers.
  *          NOTES: * It accepts negative integers so "-" is ignored.
  *                 * It assumes that given string is not empty.
@@ -72,6 +43,7 @@ int _isInt(char *c)
 int main(int argc, char *argv[])
 {
 	int num;
+	int change = 0;
 
 	if (argc != 2 || !_isInt(argv[1]))
 	{
@@ -87,7 +59,22 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 
-	printf("%d\n", countChange(num));
+	while (num)
+	{
+		if (num >= 25)
+			num -= 25;
+		else if (num >= 10)
+			num -= 10;
+		else if (num >= 5)
+			num -= 5;
+		else if (num >= 2)
+			num -= 2;
+		else
+			num--;
+
+		change++;
+	}
+	printf("%d\n", change);
 
 	return (0);
 }
