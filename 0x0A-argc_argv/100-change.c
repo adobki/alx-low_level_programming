@@ -12,17 +12,17 @@
 
 int countChange(int change)
 {
-	if(change <= 1)
+	if (change <= 1)
 		return (change);
-	else if(change)
+	else if (change)
 	{
-		if(change >= 25)
+		if (change >= 25)
 			change -= 25;
-		else if(change >= 10)
+		else if (change >= 10)
 			change -= 10;
-		else if(change >= 5)
+		else if (change >= 5)
 			change -= 5;
-		else if(change >= 2)
+		else if (change >= 2)
 			change -= 2;
 	}
 
@@ -42,7 +42,7 @@ int countChange(int change)
 
 int _isInt(char *c)
 {
-	while(*c)
+	while (*c)
 	{
 		if (!isdigit(*c))
 			if (*c != '-')
@@ -72,7 +72,7 @@ int _isInt(char *c)
 int main(int argc, char *argv[])
 {
 	int num;
-	
+
 	if (argc != 2 || !_isInt(argv[1]))
 	{
 		printf("Error\n");
