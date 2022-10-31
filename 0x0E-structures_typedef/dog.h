@@ -1,5 +1,8 @@
 #ifndef DOG
 #define DOG
+#include <stdio.h>
+#include <stdlib.h>
+
 /**
  * struct dog - Data structure for a dog's biodata.
  *
@@ -13,4 +16,7 @@ struct dog
 	float age;
 	char *owner;
 };
+
+void init_dog(struct dog *, char *, float, char *);
 #endif /* #ifndef DOG */
+
