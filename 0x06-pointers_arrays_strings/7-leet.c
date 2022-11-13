@@ -32,7 +32,7 @@ char *leet(char *str)
 	char *codeStr = str;
 
 	/* Loop through given string one character at a time */
-	while (*codeStr++)
+	while (*codeStr)
 	{
 		/* Funtion tests all criteria on current character/encode it */
 		encode(codeStr, "aA", 52);
@@ -40,6 +40,8 @@ char *leet(char *str)
 		encode(codeStr, "lL", 49);
 		encode(codeStr, "oO", 48);
 		encode(codeStr, "tT", 55);
+
+		codeStr++;
 	}
 
 	/* Return pointer to 1337 encodded string and end function */

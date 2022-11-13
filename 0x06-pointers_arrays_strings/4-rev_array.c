@@ -13,16 +13,19 @@ void reverse_array(int *a, int n)
 	int aRev[999];
 	int countr = n;
 
-	/* Loop through a backwards and copy contents to aRev */
-	while (countr > 0)
+	if (n < 2)
+		return;
+
+	/* Loop through a and copy contents to aRev backwards */
+	while (countr)
 	{
 		aRev[countr--] = *a++;
 	}
 
 	/* Loop through a & aRev backwards, copying reversed contents back to a */
-	countr = n + 1;
-	while (countr > 0)
+	countr = n;
+	while (countr)
 	{
-		*a-- = aRev[countr--];
+		*--a = aRev[countr--];
 	}
 }

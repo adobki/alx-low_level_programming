@@ -2,9 +2,9 @@
 
 /**
  * to_upper - A function that capitalises a given letter if it is lowercase.
- *              It works based on the premise that uppercase letters are 32
- *              points ahead of their lowercase counterparts in the ASCII table
- *              (i.e. in ASCII A = 65, a = 97. 65 - 97 = -32).
+ *            It works based on the premise that uppercase letters are 32
+ *            points behind their lowercase counterparts in the ASCII table.
+ *            (i.e. in ASCII A = 65, a = 97. 65 - 97 = -32.)
  *
  * @str: Pointer to the character to be capitalised if lower.
  */
@@ -28,9 +28,8 @@ void to_upper(char *str)
 char *cap_string(char *str)
 {
 	/* Create array of given word separators */
-	char sep[] = " \t\n,;.!?\"(){}";
-	unsigned long int countr;
-	char *cap_str = str;
+	char sep[] = " \t\n,;.!?\"(){}", *cap_str = str;
+	int countr, sepc = sizeof(sep);
 
 	/* Check if first character is lowercase and capitalise it */
 	to_upper(cap_str++);
@@ -39,14 +38,10 @@ char *cap_string(char *str)
 	while (*cap_str)
 	{
 		/* Check if current character is one of given separators */
-		for (countr = 0; countr < sizeof(sep); countr++)
-		{
+		for (countr = 0; countr < sepc; countr++)
 			if (*cap_str == sep[countr])
-			{
-				/* Check if current letter is lowercase */
-				to_upper(++cap_str);
-			}
-		}
+				/* Check if character after separator is lowercase */
+				to_upper(++cap_str), cap_str--;
 
 		/* Move to next character in string */
 		cap_str++;

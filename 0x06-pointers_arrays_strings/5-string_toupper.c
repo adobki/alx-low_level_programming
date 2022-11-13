@@ -14,6 +14,8 @@
 
 char *string_toupper(char *str)
 {
+	char *strBack = str;
+
 	/* Loop through given string one character at a time */
 	while (*str)
 	{
@@ -26,5 +28,5 @@ char *string_toupper(char *str)
 	}
 
 	/* Return uppercase string and end function */
-	return (str);
+	return (strBack);
 }

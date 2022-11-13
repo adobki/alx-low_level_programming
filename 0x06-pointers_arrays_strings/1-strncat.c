@@ -14,22 +14,19 @@
 char *_strncat(char *dest, char *src, int n)
 {
 	/* Declare variable to store length of concatenated string */
-	int length;
+	int length = 0;
+
+	if (n < 1)
+		return (dest);
 
 	/* Move character pointer to end of first string and store its length */
-	while (*dest)
-	{
-		dest++;
+	while (dest[length])
 		length++;
-	}
 
 	/* Contatenate second string (src) to first string (dest), store length */
 	while (*src)
 	{
-		*dest = *src;
-		dest++;
-		src++;
-		length++;
+		dest[length++] = *src++;
 
 		/* Stop if specified number of characters have been copied from src */
 		if (--n <= 0)
@@ -37,10 +34,7 @@ char *_strncat(char *dest, char *src, int n)
 	}
 
 	/* Add null byte to indicate end of string/character array */
-	*dest = '\0';
-
-	/* Move character pointer back to the beginning of the string */
-	dest -= length;
+	dest[length] = 0;
 
 	/* Return a pointer to the new, concatenated string */
 	return (dest);

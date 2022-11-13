@@ -14,26 +14,20 @@ char *_strncpy(char *dest, char *src, int n)
 {
 	/* Declare variable to store beginning of destination string */
 	char *destBck = dest;
-	char *srcBck = src;
 
 	/* Copy second string (src) to first string (dest) */
-	while (*src)
-	{
-		*dest = *src;
-		dest++;
-		src++;
-		if (--n < 1)
-			break;
-	}
+	if (src)
+		while (*src >= 0)
+		{
+			if (n-- < 1)
+				break;
 
-	/* Copy null byte that indicates end of string/character array */
-	if (*src == '\0')
-		*dest = *src;
+			*dest = *src;
+			dest++;
+			if (*src > 0)
+				src++;
+		}
 
-	/* Move character pointer back to the beginning of the string */
-	dest = destBck;
-	src = srcBck;
-
-	/* Return a pointer to the new, concatenated string */
-	return (dest);
+	/* Return a pointer to the copied string */
+	return (destBck);
 }
