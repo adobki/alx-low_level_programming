@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 /**
 * print_number - Fuction that prints an integer with _putchar, without
@@ -9,10 +10,15 @@
 
 void print_number(int n)
 {
-	int used = 0, length = 1, countr, num, power;
+	int used = 0, length = 1, isMIN = 0, countr, num, power;
 
 	if (n < 0)
-		n *= -1, _putchar('-');
+	{
+		if (n == INT_MIN)
+			n = INT_MAX, isMIN = 1, _putchar('-');
+		else
+			n *= -1, _putchar('-');
+	}
 
 	num = n;
 	while (num / 10)
@@ -34,6 +40,8 @@ void print_number(int n)
 		{
 			num = (n / power) - (used * 10);
 			used = used * 10 + num;
+			if (!length && isMIN)
+				num += 1;
 		}
 		/* printf("%d [%d \\ %d]\n", num, used, power); */
 		_putchar(num + '0');
