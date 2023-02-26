@@ -1,0 +1,22 @@
+#Source Files: https://github.com/holbertonschool/0x1B.c
+
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+all : $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+clean:
+	-$(RM) -f *~ $(NAME)
+
+oclean:
+	-$(RM) -f $(OBJ)
+
+fclean:
+	-$(RM) -f *~ $(NAME) $(OBJ)
+
+re: oclean all

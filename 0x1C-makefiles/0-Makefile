@@ -1,0 +1,8 @@
+#Source Files: https://github.com/holbertonschool/0x1B.c
+
+all : school
+
+school : main.c school.c
+
+clean:
+	-rm -f school

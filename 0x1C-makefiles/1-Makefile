@@ -1,0 +1,11 @@
+#Source Files: https://github.com/holbertonschool/0x1B.c
+
+CC = gcc
+SRC = main.c school.c
+
+all : school
+
+school : $(SRC)
+
+clean:
+	-rm -f school
