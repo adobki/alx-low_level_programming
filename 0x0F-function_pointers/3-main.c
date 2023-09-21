@@ -1,8 +1,5 @@
 #include "3-calc.h"
 
-#include "3-op_functions.c"
-#include "3-get_op_func.c"
-
 /**
  * main - Program that performs simple operations.
  *
@@ -19,8 +16,10 @@ int main(int argc, char **argv)
 		printf("Error\n"), exit(98);
 
 	calc = get_op_func(argv[2]);
-	if (calc)
-		printf("%d\n", calc(atoi(argv[1]), atoi(argv[3])));
+	if (argv[2][1] || !calc)
+		printf("Error\n"), exit(99);
+
+	printf("%d\n", calc(atoi(argv[1]), atoi(argv[3])));
 
 	return (0);
 }

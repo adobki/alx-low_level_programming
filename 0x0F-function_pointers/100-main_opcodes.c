@@ -16,14 +16,17 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 		printf("Error\n"), exit(1);
+
 	num = atoi(argv[1]);
 	if (num < 0)
 		printf("Error\n"), exit(2);
 
 	opcodes = (unsigned char *)main;
 
+	if (num)
+		printf("%02x", *opcodes++), num--;
 	while (num)
-		printf("%02x ", *opcodes--), num--;
+		printf(" %02x", *opcodes++), num--;
 	printf("\n");
 
 	return (0);
